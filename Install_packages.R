@@ -25,26 +25,25 @@ installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
 
 if (length(notInstalled) > 0){
-	
-	message("Installing/updating other required packages...\n")
-	install.packages(notInstalled, quiet = TRUE, type = "binary")
-	
-	installed <- rownames(installed.packages()) # Update to see what's there now
-	missingPackages <- setdiff(required, installed)
-	
-	}
-
-if (length(missingPackages) > 0){
-    invisible(sapply(missingPackages, 
-                     function(x){
-                         warning("\nThe package ", x, " has not installed sucessfully.\n",
-                                 "Please copy and paste the code:\n\n\t install.packages(", x,
-                                 ")\n\nand email the output to s.rogers@adelaide.edu.au\n")
-                     }))
-    stop("Installation unsuccessful.")
+    
+    message("Installing/updating other required packages...\n")
+    install.packages(notInstalled, quiet = TRUE, type = "binary")
+    
+    installed <- rownames(installed.packages()) # Update to see what's there now
+    missingPackages <- setdiff(required, installed)
+    
+    
+    if (length(missingPackages) > 0){
+        invisible(sapply(missingPackages, 
+                         function(x){
+                             warning("\nThe package ", x, " has not installed sucessfully.\n",
+                                     "Please copy and paste the code:\n\n\t install.packages(", x,
+                                     ")\n\nand email the output to s.rogers@adelaide.edu.au\n")
+                         }))
+        stop("Installation unsuccessful.")
+    }
+    else{
+        message("All required packages have been installed.")
+    }
 }
-else{
-    message("All required packages have been installed.")
-}
-
-rm(ls())
+rm(list = ls())
