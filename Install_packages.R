@@ -26,7 +26,7 @@ notInstalled <- setdiff(required, installed)
 
 if (length(notInstalled) > 0){
     
-    message("Installing/updating other required packages...\n")
+    message("Installing required packages...\n")
     install.packages(notInstalled, quiet = TRUE, type = "binary")
     
     installed <- rownames(installed.packages()) # Update to see what's there now
@@ -43,7 +43,7 @@ if (length(notInstalled) > 0){
         stop("Installation unsuccessful.")
     }
     else{
-        message("All required packages have been installed.")
+        message("\nAll required packages have been installed.\n\n\n")
     }
 }
 rm(list = ls())
