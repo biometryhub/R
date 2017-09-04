@@ -1,13 +1,13 @@
 # Connect to BioC & install using the correct packages
 
-# reqVers <- "3.4.1"
+# reqVers <- "3.2.0"
 # curVers <- paste(R.Version()[c("major", "minor")], collapse = ".")
-# if (curVers != reqVers){
+# if(substr(curVers, 1, 3) < substr(reqVers, 1, 3)){
+#     
 # 	msg <- paste("Your R version is", curVers, ".\nPlease ensure you are running R", reqVers,
 # 							 "\nThis can be downloaded from https://cran.r-project.org/")
 # 	stop(msg)
 # }
-# message("You have the correct version of R installed.")
 
 # update.packages(ask = FALSE, quiet = TRUE)
 
@@ -46,4 +46,16 @@ if (length(notInstalled) > 0){
         message("\nAll required packages have been installed.\n\n\n")
     }
 }
-rm(list = ls())
+
+#Clean up variables
+# rm(list = ls())
+
+#Source functions for Sharon's workshop
+source("https://raw.githubusercontent.com/therog1/R/master/graphing.R")
+#OR source("http://bit.ly/2x3SIUO")
+source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
+#OR source("http://bit.ly/2wzs7Mx")
+save.image()
+
+
+
