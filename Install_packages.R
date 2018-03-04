@@ -19,7 +19,9 @@ required <- c(
 	# Rstudio
 	"knitr", "rmarkdown",
 	# Experimental design
-	"agricolae"
+	"agricolae",
+	#W2 extra packages
+	"emmeans", "asremlPlus"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
