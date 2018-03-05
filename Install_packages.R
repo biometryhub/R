@@ -54,9 +54,11 @@ if (length(notInstalled) > 0){
 
 #Source functions for Sharon's workshop
 source("https://raw.githubusercontent.com/therog1/R/master/graphing.R")
-#OR source("http://bit.ly/2x3SIUO")
+#OR source("http://bit.do/graphing-R")
 source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
-#OR source("http://bit.ly/2wzs7Mx")
+#OR source("http://bit.do/satab")
+source("https://raw.githubusercontent.com/therog1/R/master/W2_functions.r")
+#OR source("http://bit.do/W2_functions")
 save.image()
 
 
