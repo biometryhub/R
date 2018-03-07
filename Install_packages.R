@@ -21,7 +21,7 @@ required <- c(
 	# Experimental design
 	"agricolae",
 	#W2 extra packages
-	"emmeans", "asremlPlus"
+	"emmeans", "asremlPlus", "gridExtra", "ggpubr"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
