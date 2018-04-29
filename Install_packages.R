@@ -39,8 +39,9 @@ if (length(notInstalled) > 0){
         invisible(sapply(missingPackages, 
                          function(x){
                              warning("\nThe package ", x, " has not installed sucessfully.\n",
-                                     "Please copy and paste the code:\n\n\t install.packages(", x,
-                                     ")\n\nand email the output to s.rogers@adelaide.edu.au\n")
+                                     "Please copy and paste the code:\n\n\t install.packages('", x,
+                                     "')\n\n and try running it again on the console. \n\n
+					If that fails again, please email the output to s.rogers@adelaide.edu.au\n")
                          }))
         stop("Installation unsuccessful.")
     }
