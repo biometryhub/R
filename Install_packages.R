@@ -54,10 +54,13 @@ if (length(notInstalled) > 0){
 # rm(list = ls())
 
 #Source functions for Sharon's workshop
-source("https://raw.githubusercontent.com/therog1/R/master/graphing.R")
+#source("https://raw.githubusercontent.com/therog1/R/master/graphing.R")
 #OR source("http://bit.do/graphing-R")
-source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
+#source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
 #OR source("http://bit.do/satab")
+#W1 functions
+source("https://raw.githubusercontent.com/therog1/R/master/W1_functions.r")
+#W2 functions
 source("https://raw.githubusercontent.com/therog1/R/master/W2_functions.r")
 #OR source("http://bit.do/W2_functions")
 save.image()
