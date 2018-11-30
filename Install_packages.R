@@ -1,23 +1,10 @@
-# Connect to BioC & install using the correct packages
-
-# reqVers <- "3.2.0"
-# curVers <- paste(R.Version()[c("major", "minor")], collapse = ".")
-# if(substr(curVers, 1, 3) < substr(reqVers, 1, 3)){
-#     
-# 	msg <- paste("Your R version is", curVers, ".\nPlease ensure you are running R", reqVers,
-# 							 "\nThis can be downloaded from https://cran.r-project.org/")
-# 	stop(msg)
-# }
-
-# update.packages(ask = FALSE, quiet = TRUE)
-
 required <- c(
 	# tidyverse
 	"tidyverse",
 	# plotting
 	"ggthemes",
 	# Rstudio
-	"knitr", "rmarkdown",
+	"knitr", "rmarkdown", "tinytex",
 	# Experimental design
 	"agricolae",
 	#W2 extra packages
