@@ -1,7 +1,7 @@
 # Residual plot
 
 resplt <- function(mod.obj){
-aa <- data.frame(residuals = mod.obj$residuals, fitted = mod.obj$fitted)
+aa <- data.frame(residuals = resid(mod.obj), fitted = fitted(mod.obj))
 
 aa$stdres <- aa$residuals/(sd(aa$residuals, na.rm = TRUE)*sqrt((length(!is.na(aa$residuals)-1))/(length(!is.na(aa$residuals)))))
 
