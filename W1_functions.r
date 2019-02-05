@@ -7,6 +7,10 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         install.packages("RColorBrewer")
         library(RColorBrewer)
     }
+    if (!require("ggplot2")) {
+        install.packages("ggplot2")
+        library(ggplot2)
+    }
     
     if(design == "lsd"){
         des <- design.obj
