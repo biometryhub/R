@@ -12,14 +12,12 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         library(ggplot2)
     }
     
-    if(design == "lsd"){
+    if(design == "lsd" | design == "ls"){
         des <- design.obj
         des[[plot.fac]] <- factor(des[[plot.fac]])
+        
         # Number of treatments
-        
-        
         ntrt <- length(levels(factor(des[[plot.fac]])))
-        
         
         # create the colours for the graph
         color_palette <- colorRampPalette(brewer.pal(11, "Spectral"))(ntrt)
@@ -27,24 +25,32 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         plt <- ggplot(des, aes(x = col, y = row, fill = des[[plot.fac]])) + geom_tile(colour = "black") +
             geom_text(aes(label = des[[plot.fac]])) +
             theme_bw() + scale_fill_manual(values = color_palette, name = plot.fac)
-        
     }
     
     if(design == "crd" | design == "rcbd" | design == "fac"){
         
         plan <- expand.grid(row = 1:nrows, col = 1:ncols)
+        
+        if(design == "rcbd") {
+            # If the number of blocks is the same as rows (but not columns), 
+            # then re-sort plan by rows rather than columns to get it displaying blocks in the correct orientation
+            if(length(unique(plan$row)) == length(unique(design.obj$block)) & length(unique(plan$col)) != length(unique(design.obj$block))) {
+                plan <- plan[order(plan$row),]
+            }
+        }
+        
         des <- cbind(plan, design.obj)
         
         if(design == "fac"){
             des$trt <- paste("A", des$A, "B", des$B, sep = " ")
         }
         
+        
+        
         des[[plot.fac]] <- factor(des[[plot.fac]])
+        
         # Number of treatments
-        
-        
         ntrt <- length(levels(factor(des[[plot.fac]])))
-        
         
         # create the colours for the graph
         color_palette <- colorRampPalette(brewer.pal(11, "Spectral"))(ntrt)
@@ -64,9 +70,7 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         des$trt <- factor(paste(des[[sp.facW]], des[[sp.facS]], sep = " "))
         
         # Number of treatments
-        
         ntrt <- length(levels(factor(des[[plot.fac]])))
-        
         
         # create the colours for the graph
         color_palette <- colorRampPalette(brewer.pal(11, "Spectral"))(ntrt)
@@ -74,12 +78,11 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         plt <- ggplot(des, aes(x = col, y = row, fill = des[[plot.fac]])) + geom_tile(colour = "black") +
             geom_text(aes(label = des[[plot.fac]])) +
             theme_bw() + scale_fill_manual(values = color_palette, name = plot.fac)
-        
     }
     
-    plt
-    
+    plt + scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
 }
+
 
 
 
