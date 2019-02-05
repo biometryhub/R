@@ -12,7 +12,7 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         library(ggplot2)
     }
     
-    if(design == "lsd" | design == "ls"){
+    if(design == "lsd"){
         des <- design.obj
         des[[plot.fac]] <- factor(des[[plot.fac]])
         
@@ -32,10 +32,11 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
         plan <- expand.grid(row = 1:nrows, col = 1:ncols)
         
         if(design == "rcbd") {
-            # If the number of blocks is the same as rows (but not columns), 
-            # then re-sort plan by rows rather than columns to get it displaying blocks in the correct orientation
-            if(length(unique(plan$row)) == length(unique(design.obj$block)) & length(unique(plan$col)) != length(unique(design.obj$block))) {
-                plan <- plan[order(plan$row),]
+            # If the number of blocks evenly divides the number of rows (but not columns), 
+            # then re-sort plan by rows first and then columns to get it displaying blocks in the correct orientation
+            if(length(unique(plan$row)) %% length(unique(design.obj$block)) == 0 & 
+               length(unique(plan$col)) %% length(unique(design.obj$block)) != 0) {
+                plan <- plan[order(plan$row, plan$col),]
             }
         }
         
@@ -79,9 +80,9 @@ plot.des <- function(design.obj, design, nrows, ncols, plot.fac = "trt", sp.facW
             geom_text(aes(label = des[[plot.fac]])) +
             theme_bw() + scale_fill_manual(values = color_palette, name = plot.fac)
     }
-    
     plt + scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0))
 }
+
 
 
 
