@@ -39,6 +39,8 @@ if (length(notInstalled) > 0){
     }
 }
 
+devtools::install_github("biometryhub/BiometryTraining")
+
 #Clean up variables
 # rm(list = ls())
 
@@ -48,9 +50,9 @@ if (length(notInstalled) > 0){
 #source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
 #OR source("http://bit.do/satab")
 #W1 functions
-source("https://raw.githubusercontent.com/rogerssam/R/master/W1_functions.R")
+#source("https://raw.githubusercontent.com/rogerssam/R/master/W1_functions.R")
 #W2 functions
-source("https://raw.githubusercontent.com/rogerssam/R/master/W2_functions.r")
+#source("https://raw.githubusercontent.com/rogerssam/R/master/W2_functions.r")
 #OR source("http://bit.do/W2_functions")
 save.image()
 
