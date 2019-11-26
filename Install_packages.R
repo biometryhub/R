@@ -39,7 +39,7 @@ if (length(notInstalled) > 0){
     }
 }
 
-devtools::install_github("biometryhub/BiometryTraining")
+devtools::install_github("biometryhub/BiometryTraining", upgrade = "never")
 
 #Clean up variables
 # rm(list = ls())
