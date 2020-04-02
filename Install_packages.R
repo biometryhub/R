@@ -39,7 +39,7 @@ if (length(notInstalled) > 0){
   }
 }
 
-devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE, )
+devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
 
 if(!"BiometryTraining" %in% rownames(installed.packages())) {
   warning("\nThe BiometryTraining package has not installed sucessfully.\n",
