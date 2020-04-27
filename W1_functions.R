@@ -1,11 +1,9 @@
 ##############################################
 #### Graphing function #######################
-#################################################
-#### Graphing function #######################
 ##############################################
 plot.des <- function(design.obj, nrows, ncols, brows, bcols){
     .Deprecated(new = "des.info", package = "BiometryTraining", 
-                msg = paste0("These functions are no longer maintained.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining or email us for more information: biometrytraining@adelaide.edu.au.\nThis function has been replaced by des.info."))
+                msg = paste0("These functions are no longer maintained and will be removed at a future date.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining or email us for more information: biometrytraining@adelaide.edu.au.\nThis function has been replaced by des.info."))
     
     nth_element <- function(vector, starting_position, n) {
         vector[seq(starting_position, length(vector), n)]
