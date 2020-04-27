@@ -1,51 +1,58 @@
 # Residual plot
 
 resplt <- function(mod.obj){
-aa <- data.frame(residuals = resid(mod.obj), fitted = fitted(mod.obj))
-
-aa$stdres <- aa$residuals/(sd(aa$residuals, na.rm = TRUE)*sqrt((length(!is.na(aa$residuals)-1))/(length(!is.na(aa$residuals)))))
-
-a <-  ggplot(data = aa, mapping = aes(x = stdres)) +
-geom_histogram(bins = ifelse(nrow(aa) < 31, 7, 11), fill = "aquamarine3", colour = "black") +
-theme_bw() +   labs(y = "Frequency", x = "Standardised Residual")
-
-
-qqplot.data <- function (vec = aa$stdres)
-{
-y <- quantile(vec[!is.na(vec)], c(0.25, 0.75))
-x <- qnorm(c(0.25, 0.75))
-slope <- 1
-int <- 0
-
-vecdf <- data.frame(resids = vec)
-
-  ggplot(vecdf, aes(sample = resids)) + stat_qq(colour = "black", fill = "aquamarine3", size = 2 , shape = 21) +
-  geom_abline(slope = slope, intercept = int) + theme_bw() +
-  labs(y = "Standardised Residual", x = "Theoretical")
-}
-
-b <- qqplot.data(aa$stdres)
-
-
-c <- ggplot(data = aa, mapping = aes(x = fitted, y = stdres)) +
-geom_point(colour = "black", fill = "aquamarine3", size = 2 , shape = 21) + theme_bw() +
-labs(y = "Standardised Residual", x = "Fitted Value")
-
-
-
-library(gridExtra)
-library(ggpubr)
-
-ggarrange(a,b,c, labels = c("A", "B", "C"),
-             nrow = 2, ncol = 2)
-
-
+    .Deprecated(new = "resplt", package = "BiometryTraining", 
+                msg = paste0("These functions are no longer maintained and will be removed at a future date.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining\nThis function has been replaced by resplt."))
+    
+    
+    aa <- data.frame(residuals = resid(mod.obj), fitted = fitted(mod.obj))
+    
+    aa$stdres <- aa$residuals/(sd(aa$residuals, na.rm = TRUE)*sqrt((length(!is.na(aa$residuals)-1))/(length(!is.na(aa$residuals)))))
+    
+    a <-  ggplot(data = aa, mapping = aes(x = stdres)) +
+        geom_histogram(bins = ifelse(nrow(aa) < 31, 7, 11), fill = "aquamarine3", colour = "black") +
+        theme_bw() +   labs(y = "Frequency", x = "Standardised Residual")
+    
+    
+    qqplot.data <- function (vec = aa$stdres)
+    {
+        y <- quantile(vec[!is.na(vec)], c(0.25, 0.75))
+        x <- qnorm(c(0.25, 0.75))
+        slope <- 1
+        int <- 0
+        
+        vecdf <- data.frame(resids = vec)
+        
+        ggplot(vecdf, aes(sample = resids)) + stat_qq(colour = "black", fill = "aquamarine3", size = 2 , shape = 21) +
+            geom_abline(slope = slope, intercept = int) + theme_bw() +
+            labs(y = "Standardised Residual", x = "Theoretical")
+    }
+    
+    b <- qqplot.data(aa$stdres)
+    
+    
+    c <- ggplot(data = aa, mapping = aes(x = fitted, y = stdres)) +
+        geom_point(colour = "black", fill = "aquamarine3", size = 2 , shape = 21) + theme_bw() +
+        labs(y = "Standardised Residual", x = "Fitted Value")
+    
+    
+    
+    library(gridExtra)
+    library(ggpubr)
+    
+    ggarrange(a,b,c, labels = c("A", "B", "C"),
+              nrow = 2, ncol = 2)
+    
+    
 }
 
 
 ######################################################################
 tukey.rank <- function(Mean, SED, Names = NULL, crit.val)
 {
+    .Deprecated(new = "tuk.out", package = "BiometryTraining", 
+                msg = paste0("These functions are no longer maintained and will be removed at a future date.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining\nThis function has been replaced by tuk.out."))
+    
     # This function compares means pairwise
     # Pairs not "significantly" different have a letter in common
     
@@ -152,6 +159,8 @@ tukey.rank <- function(Mean, SED, Names = NULL, crit.val)
 ######################################################################
 
 tuk.out <- function(pred.obj, model.obj, data, pred, sig = 0.95){
+    .Deprecated(new = "tuk.out", package = "BiometryTraining", 
+                msg = paste0("These functions are no longer maintained and will be removed at a future date.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining\nThis function has been replaced by tuk.out."))
     
     #For use with asreml 4+
     if(packageVersion("asreml")>4) {
@@ -163,7 +172,7 @@ tuk.out <- function(pred.obj, model.obj, data, pred, sig = 0.95){
         pp <- pred.obj$predictions$`pvals`
         sed <- pred.obj$predictions$sed
     }
-   
+    
     pp <- pp[!is.na(pp$predicted.value),]
     pp$est.status <- NULL
     
@@ -191,6 +200,3 @@ tuk.out <- function(pred.obj, model.obj, data, pred, sig = 0.95){
     
     return(pp)
 }
-
-
-######################################################################
