@@ -4,6 +4,9 @@
 # Created by Sharon Nielsen, September 2017
 
 satab <- function(design.obj, design, sp.facW = NULL, sp.facS = NULL){
+    .Deprecated(new = "des.info", package = "BiometryTraining", 
+                msg = paste0("These functions are no longer maintained and will be removed at a future date.\nPlease use the package we have created instead: https://github.com/biometryhub/BiometryTraining\nThis function has been replaced by des.info."))
+    
     if(design != "sp"){
         cat(format("Source of Variation",width = 40), "df", "\n")
         cat("=============================================\n")
