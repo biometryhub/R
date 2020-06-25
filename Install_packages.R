@@ -8,7 +8,7 @@ required <- c(
   # Experimental design
   "agricolae",
   #W2 extra packages
-  "emmeans", "asremlPlus", "gridExtra", "ggpubr", "data.table",
+  "asremlPlus", "data.table",
   #W3 packages
   "tinytex", "pander", "kableExtra", "xtable", "devtools"
 )
