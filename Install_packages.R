@@ -18,7 +18,7 @@ notInstalled <- setdiff(required, installed)
 if (length(notInstalled) > 0){
   
   message("Installing required packages...\n")
-  install.packages(notInstalled, quiet = TRUE, type = "binary")
+  install.packages(notInstalled, quiet = TRUE, type = ifelse(Sys.info()[['sysname']]=="Linux", "source", "binary"))
   
   installed <- rownames(installed.packages()) # Update to see what's there now
   missingPackages <- setdiff(required, installed)
