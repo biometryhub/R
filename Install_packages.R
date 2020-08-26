@@ -10,7 +10,7 @@ required <- c(
   #W2 extra packages
   "asremlPlus", "data.table",
   #W3 packages
-  "tinytex", "pander", "kableExtra", "xtable", "devtools"
+  "tinytex", "pander", "kableExtra", "xtable", "devtools", "drat"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
@@ -39,7 +39,9 @@ if (length(notInstalled) > 0){
   }
 }
 
-devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
+drat::addRepo("biometryhub")
+install.packages("BiometryTraining")
+#devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
 
 if(!"BiometryTraining" %in% rownames(installed.packages())) {
   warning("\nThe BiometryTraining package has not installed sucessfully.\n",
@@ -50,15 +52,3 @@ if(!"BiometryTraining" %in% rownames(installed.packages())) {
 
 #Clean up variables
 # rm(list = ls())
-
-#Source functions for Sharon's workshop
-#source("https://raw.githubusercontent.com/therog1/R/master/graphing.R")
-#OR source("http://bit.do/graphing-R")
-#source("https://raw.githubusercontent.com/therog1/R/master/satab.R")
-#OR source("http://bit.do/satab")
-#W1 functions
-#source("https://raw.githubusercontent.com/rogerssam/R/master/W1_functions.R")
-#W2 functions
-#source("https://raw.githubusercontent.com/rogerssam/R/master/W2_functions.r")
-#OR source("http://bit.do/W2_functions")
-save.image()
