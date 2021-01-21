@@ -10,7 +10,7 @@ required <- c(
   #W2 extra packages
   "asremlPlus", "data.table",
   #W3 packages
-  "tinytex", "pander", "kableExtra", "xtable", "devtools", "drat"
+  "tinytex", "pander", "kableExtra", "xtable", "devtools"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
