@@ -39,9 +39,9 @@ if (length(notInstalled) > 0){
   }
 }
 
-drat::addRepo("biometryhub")
-install.packages("BiometryTraining")
-#devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
+#drat::addRepo("biometryhub")
+#install.packages("BiometryTraining")
+devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
 
 if(!"BiometryTraining" %in% rownames(installed.packages())) {
   warning("\nThe BiometryTraining package has not installed sucessfully.\n",
