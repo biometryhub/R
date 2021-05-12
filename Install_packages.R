@@ -2,15 +2,13 @@ required <- c(
   # tidyverse
   "tidyverse",
   # plotting
-  "ggthemes",
+  #"ggthemes",
   # Rstudio
   "knitr", "rmarkdown", 
-  # Experimental design
-  "agricolae",
   #W2 extra packages
   "asremlPlus", "data.table",
   #W3 packages
-  "tinytex", "pander", "kableExtra", "xtable", "devtools"
+  "tinytex", "pander", "kableExtra", "xtable", "remotes"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
@@ -30,7 +28,7 @@ if (length(notInstalled) > 0){
                        warning("\nThe package ", x, " has not installed sucessfully.\n",
                                "Please copy and paste the code:\n\n\t install.packages('", x,
                                "')\n\n and try running it again on the console. \n\n
-                               If that fails again, please email the output to s.rogers@adelaide.edu.au\n")
+                               If that fails again, please email the output to sam.rogers@adelaide.edu.au\n")
                      }))
     stop("Installation unsuccessful.")
                      }
@@ -40,14 +38,14 @@ if (length(notInstalled) > 0){
 }
 
 #drat::addRepo("biometryhub")
-#install.packages("BiometryTraining")
-devtools::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
+install.packages("patchwork")
+remotes::install_github("biometryhub/BiometryTraining", upgrade = "never", quiet = TRUE)
 
 if(!"BiometryTraining" %in% rownames(installed.packages())) {
   warning("\nThe BiometryTraining package has not installed sucessfully.\n",
-          "Please copy and paste the code:\n\n\t devtools::install_github('biometryhub/BiometryTraining', upgrade = 'never')\n\n 
+          "Please copy and paste the code:\n\n\t remotes::install_github('biometryhub/BiometryTraining', upgrade = 'never')\n\n 
           and try running it again on the console. \n\n
-          If that fails again, please email the output to s.rogers@adelaide.edu.au\n")
+          If that fails again, please email the output to sam.rogers@adelaide.edu.au\n")
 }
 
 #Clean up variables
