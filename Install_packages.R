@@ -4,11 +4,11 @@ required <- c(
   # plotting
   #"ggthemes",
   # Rstudio
-  "knitr", "rmarkdown", 
+  "rmarkdown", 
   #W2 extra packages
   "asremlPlus", "data.table",
   #W3 packages
-  "tinytex", "pander", "kableExtra", "xtable", "remotes"
+  "tinytex", "pander", "kableExtra", "remotes"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
