@@ -1,16 +1,12 @@
 required <- c(
   # tidyverse
   "tidyverse",
-  # plotting
-  "ggthemes",
   # Rstudio
-  "knitr", "rmarkdown", 
-  # Experimental design
-  "agricolae",
-  #W2 extra packages
-  "asremlPlus", "data.table",
-  #W3 packages
-  "tinytex", "pander", "kableExtra", "xtable", "devtools"
+  "rmarkdown", 
+  # W3 packages
+  "tinytex", "pander", "kableExtra", "remotes",
+  # biometryassist
+  "biometryassist"
 )
 installed <- rownames(installed.packages())
 notInstalled <- setdiff(required, installed)
